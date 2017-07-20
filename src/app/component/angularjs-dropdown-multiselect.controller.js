@@ -155,6 +155,10 @@ export default function dropdownMultiselectController(
 
 	$scope.externalEvents.onInitDone();
 
+    $scope.$watch('translationTexts', function (newValue, oldValue) {
+        angular.extend(texts, $scope.translationTexts);
+    }, true);
+
 	function focusFirstOption() {
 		setTimeout(() => {
 			const elementToFocus = angular.element($element)[0].querySelector('.option');
