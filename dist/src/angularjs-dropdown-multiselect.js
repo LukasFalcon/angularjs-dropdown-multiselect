@@ -262,6 +262,10 @@
 
 		$scope.externalEvents.onInitDone();
 
+        $scope.$watch('translationTexts', function (newValue, oldValue) {
+            angular.extend(texts, $scope.translationTexts);
+        }, true);
+
 		function focusFirstOption() {
 			setTimeout(function () {
 				var elementToFocus = angular.element($element)[0].querySelector('.option');
